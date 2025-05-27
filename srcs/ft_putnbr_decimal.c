@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 08:26:03 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/05/26 09:26:58 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/05/27 01:52:40 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,14 @@ static int	ft_putnbr_decimal_u(unsigned int u)
 	return (ft_putnbr_base_ul(BASE_10, ul));
 }
 
-int	ap_printdecimal_u(va_list ap)
+int	ap_printdecimal_u(va_list ap, char c)
 {
+	(void)c;
 	return (ft_putnbr_decimal_u(va_arg(ap, unsigned int)));
 }
 
-int	ap_printdecimal(va_list ap)
+int	ap_printdecimal(va_list ap, char c)
 {
+	(void)c;
 	return (ft_putnbr_decimal(va_arg(ap, int)));
 }

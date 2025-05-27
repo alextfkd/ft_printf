@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 08:31:54 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/05/26 14:20:16 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/05/27 01:54:22 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-int	ap_putpercent(va_list ap)
+int	ap_putpercent(va_list ap, char c)
 {
 	(void)ap;
-	return (pf_putchar('%'));
+	return (pf_putchar((int)c));
 }

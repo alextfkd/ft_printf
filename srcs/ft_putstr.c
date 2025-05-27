@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 08:36:35 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/05/26 08:36:37 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/05/27 01:53:47 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	ft_putstr(const char *s)
 	return (write(1, s, len));
 }
 
-int	ap_putstr(va_list ap)
+int	ap_putstr(va_list ap, char c)
 {
+	(void)c;
 	return (ft_putstr(va_arg(ap, char *)));
 }

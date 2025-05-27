@@ -6,7 +6,7 @@
 /*   By: tkatsuma <tkatsuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 22:13:30 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/05/26 14:30:43 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/05/27 01:55:08 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ int		pf_putchar(int c);
 int		ft_putnbr_base_ul(char *base_table, unsigned long ln);
 int		ft_putnbr_base_ull(char *base_table, unsigned long long ull);
 
-int		ap_printbase16l(va_list ap);
-int		ap_printbase16u(va_list ap);
-int		ap_printdecimal_u(va_list ap);
-int		ap_printdecimal(va_list ap);
-int		ap_printpointerull(va_list ap);
+int		ap_printbase16l(va_list ap, char c);
+int		ap_printbase16u(va_list ap, char c);
+int		ap_printdecimal_u(va_list ap, char c);
+int		ap_printdecimal(va_list ap, char c);
+int		ap_printpointerull(va_list ap, char c);
 int		ft_putstr(const char *s);
-int		ap_putstr(va_list ap);
+int		ap_putstr(va_list ap, char c);
 int		pf_putchar(int c);
-int		ap_putchar(va_list ap);
-int		ap_putpercent(va_list ap);
+int		ap_putchar(va_list ap, char c);
+int		ap_putpercent(va_list ap, char c);
 int		ft_printf(const char *format, ...);
 #endif

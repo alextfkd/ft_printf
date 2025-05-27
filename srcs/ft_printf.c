@@ -6,20 +6,37 @@
 /*   By: tkatsuma <tkatsuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 22:13:35 by tkatsuma          #+#    #+#             */
-/*   Updated: 2025/05/26 15:36:29 by tkatsuma         ###   ########.fr       */
+/*   Updated: 2025/05/27 02:12:04 by tkatsuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "../includes/ft_printf.h"
 #include "ft_printf.h"
 
+int	ap_as_is(va_list ap, char c)
+{
+	char	s[2];
+
+	(void)ap;
+	s[0] = '%';
+	s[1] = c;
+	return (write(1, s, 2));
+}
+
 int	typehash(char c, va_list *ap)
 {
-	static int	(*types[128])(va_list);
+	static int	(*types[128])(va_list, char);
 	static int	init_flag;
+	int			i;
 
 	if (init_flag == 0)
 	{
+		i = 0;
+		while (i < 128)
+		{
+			types[i] = (void *)ap_as_is;
+			i++;
+		}
 		types['c'] = (void *)ap_putchar;
 		types['s'] = (void *)ap_putstr;
 		types['d'] = (void *)ap_printdecimal;
@@ -31,7 +48,7 @@ int	typehash(char c, va_list *ap)
 		types['%'] = (void *)ap_putpercent;
 		init_flag = 1;
 	}
-	return (types[(int)c](*ap));
+	return (types[(int)c](*ap, c));
 }
 
 int	ft_printf(const char *format, ...)
