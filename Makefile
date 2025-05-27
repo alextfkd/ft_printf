@@ -19,8 +19,11 @@ CFLAGS	= -Wall -Wextra -Werror -Iincludes
 AR		= ar
 ARFLAGS	= rcs
 
-all: $(NAME)
+all: $(OBJDIR) $(NAME)
 
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+	
 $(NAME):	$(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
